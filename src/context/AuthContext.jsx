@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const AuthContext = createContext();
 
-const API_URL = 'https://tutam9-backend-d4m9ycz9z-dzakys-projects-91c39113.vercel.app/api';
+const API_URL = 'https://tutam9-backend-beta.vercel.app/api';
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -53,8 +53,10 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
+      console.log('Attempting login with:', credentials);
       setError(null);
       const response = await axios.post(`${API_URL}/users/login`, credentials);
+      console.log('Login response:', response.data);
       localStorage.setItem('token', response.data.token);
       setCurrentUser({
         id: response.data.userId,
@@ -62,6 +64,7 @@ export const AuthProvider = ({ children }) => {
       });
       return response.data;
     } catch (err) {
+      console.error('Login error details:', err.response || err);
       setError(err.response?.data?.message || 'Login failed');
       throw err;
     }
