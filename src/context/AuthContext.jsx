@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const AuthContext = createContext();
 
-const API_URL = 'https://tutam9-backend-beta.vercel.app/api';
+const API_URL = 'https://tutam9-backend-d4m9ycz9z-dzakys-projects-91c39113.vercel.app/api';
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
