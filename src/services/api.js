@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://tutam9-backend-d4m9ycz9z-dzakys-projects-91c39113.vercel.app';
+const API_URL = 'https://tutam9-backend-d4m9ycz9z-dzakys-projects-91c39113.vercel.app/api';
 
 // Create axios instance with auth token
 const api = axios.create({
