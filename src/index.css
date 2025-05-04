@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Definisi warna tema utama */
+  --color-primary: #4f46e5; /* indigo-600 */
+  --color-primary-hover: #4338ca; /* indigo-700 */
+  --color-secondary: #3b82f6; /* blue-500 */
+  --color-secondary-hover: #2563eb; /* blue-600 */
+  --color-light: #f3f4f6; /* gray-100 */
+  --color-light-hover: #e5e7eb; /* gray-200 */
+  
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset body styling untuk full width */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  color: #213547;
+}
+
+/* Utility classes */
+@layer components {
+  .app-container {
+    @apply w-full min-h-screen bg-white overflow-x-hidden;
+  }
+  
+  /* Button variants untuk konsistensi tema */
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-600 to-blue-500 text-white hover:from-indigo-700 hover:to-blue-600 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+  
+  .btn-light {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
+  }
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary); /* Sesuaikan link juga */
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Styling button default yang konsisten dengan tema */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-primary-hover); /* Mengganti ungu (#8c5ba0) dengan indigo primary */
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary);
+  border-color: transparent;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Khusus untuk button cancel/secondary */
+button.btn-cancel {
+  background-color: var(--color-light);
+  color: #4b5563; /* gray-700 */
+}
+
+button.btn-cancel:hover {
+  background-color: var(--color-light-hover);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: var(--color-secondary);
+  }
+  button {
+    background-color: var(--color-primary);
+  }
+  button.btn-cancel {
+    background-color: var(--color-light);
+  }
+}
